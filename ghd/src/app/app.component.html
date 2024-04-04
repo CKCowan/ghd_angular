@@ -1,0 +1,57 @@
+
+<!-- Angular material toolbar navigation -->
+<mat-toolbar >
+    <button mat-icon-button color="accent" aria-label="Menu icon" (click)="sidenav.open()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <button mat-icon-button color="accent" aria-label="Shopping cart icon">
+        <mat-icon matBadge="{{itemsInCart}}" matBadgeColor="accent" matBadgeSize="small">shopping_cart</mat-icon>
+    </button>
+</mat-toolbar>
+
+<!-- Angular material sidebar navigation -->
+<mat-sidenav-container>
+    <mat-sidenav #sidenav>
+        <mat-nav-list (click)="sidenav.close()">
+            <a mat-list-item routerLink="/">
+                <mat-icon>home</mat-icon>
+                <span>Home</span>
+            </a>
+            <a mat-list-item routerLink="necklaces">
+                <mat-icon>diamond</mat-icon>
+                <span>Necklaces</span>
+            </a>
+            <a mat-list-item routerLink="bracelets">
+                <mat-icon>diamond</mat-icon>
+                <span>Bracelets</span>
+            </a>
+            <a mat-list-item routerLink="earrings">
+                <mat-icon>diamond</mat-icon>
+                <span>Earrings</span>
+            </a>
+            
+            <a mat-list-item [matMenuTriggerFor]="dropdown">Collections</a>
+            <mat-menu #dropdown>
+                <a mat-menu-item routerLink="chained">All Chained Up</a>
+                <a mat-menu-item routerLink="fun">Gem Fun</a>
+    
+            </mat-menu>
+
+        </mat-nav-list>
+    </mat-sidenav>
+    <!-- <mat-sidenav position="end" [(opened)]="opened">End</mat-sidenav>     -->
+
+    <!-- <section>Main</section> -->
+    <section>
+        <h1>Gem Hunter Designs</h1>
+    </section>
+
+</mat-sidenav-container>
+
+
+
+
+
+
+
+<router-outlet></router-outlet>

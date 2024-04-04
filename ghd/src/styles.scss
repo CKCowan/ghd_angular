@@ -1,0 +1,101 @@
+/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$dark-primary-text: #1A3033;
+$light-primary-text: #F6F6F6;
+
+$mat-primary: (
+    50: #E2F7F9,
+    100: #B7EBF0,
+    200: #8CDDE7,
+    300: #66CFDD,
+    400: #53C5D5,
+    500: #46BBCF,
+    600: #42ABBC,
+    700: #3B96A2,
+    800: #35828B,
+    900: #295F61,
+    A100: #A9EBCE,
+    A200: #73DBB1,
+    A400: #00C07D,
+    A700: #00934E,
+    contrast: (
+        50: $dark-primary-text,
+        100: $dark-primary-text,
+        200: $dark-primary-text,
+        300: $dark-primary-text,
+        400: $dark-primary-text,
+        500: $dark-primary-text,
+        600: $dark-primary-text,
+        700: $dark-primary-text,
+        800: $dark-primary-text,
+        900: $light-primary-text,
+        A100: $dark-primary-text,
+        A200: $dark-primary-text,
+        A400: $dark-primary-text,
+        A700: $dark-primary-text,
+    )
+);
+$mat-accent: (
+    50: #F9E5F0,
+    100: #F2BDD9,
+    200: #ED93C1,
+    300: #E967A8,
+    400:#E74794,
+    500:#E6257F,
+    600:#E40067,
+    700:#CE0060,
+    800:#B9005C,
+    900:#940056,
+    A100: #E5BCE2,
+    A200: #D58FCF,
+    A400: #B53CAD,
+    A700: #870193,
+    contrast: (
+        50: $dark-primary-text,
+        100: $dark-primary-text,
+        200: $dark-primary-text,
+        300: $dark-primary-text,
+        400: $dark-primary-text,
+        500: $light-primary-text,
+        600: $light-primary-text,
+        700: $light-primary-text,
+        800: $light-primary-text,
+        900: $light-primary-text,
+        A100: $dark-primary-text,
+        A200: $dark-primary-text,
+        A400: $light-primary-text,
+        A700: $light-primary-text,
+    )
+);
+
+$primary: mat.define-palette($mat-primary);
+$accent: mat.define-palette($mat-accent);
+
+$theme: mat.define-light-theme(
+    (
+        color: (
+            primary: $primary,
+            accent: $accent
+        ),
+        typography: mat.define-typography-config(),
+        density: 0,
+    ) 
+); 
+
+@include mat.all-component-themes($theme);
+
+$primary-200: mat.get-theme-color($theme, primary, 200);
+
+html, body { height: 100%; }
+body {
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    color: $dark-primary-text;
+}
+
+.primary-200{
+    background-color: $primary-200;
+}
